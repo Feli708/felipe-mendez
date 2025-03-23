@@ -24,6 +24,49 @@ CALCULADORA DE PROPINAS
 if total_cuenta.replace('.', '', 1).isdigit():
     total_cuenta = float(total_cuenta)
 
+PIEDRA PAPEL O TIJERA
+import random 
+def jugar():
+    opciones =["piedra", "papel", "tijera"]
+    computadora = random.choice(opciones) #eleccion aleatoria de la computadora 
+    usuario = input("elige piedra, papel o tijera:").lower()
+    if usuario not in opciones:
+        print("opcion no valida intenta de nuevo")
+        return jugar() # reintentar si la entrada es invalida 
+        print(f"la computadora elige {computadora}")
+        
+        if usuario == computadora:
+            print("es un empate")
+        elif (usuario == "piedra" and computadora == "tijera") or \
+            (usuario == "papel" and computadora == "piedra") or \
+                (usuario == "tijera" and computadora == "papel"):
+                print("ganaste")
+        else:
+            print("perdiste")
+            # iniciar el juego
+            jugar()
+
+ROBOT PARLANCHIN
+def robot(mensaje):
+    mensaje = mensaje.lower()
+
+    if mensaje == "hola":
+        return "hola humano"
+    elif mensaje == "adios":
+        return "hasta luego terricola"
+    else:
+        return "no entiendo, intenta de nuevo"
+
+print("robot: hola escribe algo para conversar (o escribe 'salir' para terminar)")
+
+while True:
+    usuario = input("tu: ")
+    if usuario.lower() == "salir":
+        print("robot: hasta luego")
+        break
+    respuesta = robot(usuario)
+    print(f"robot: {respuesta}")
+
 ROBOT PARLANCHIN
 def robot(mensaje):
     mensaje = mensaje.lower()
