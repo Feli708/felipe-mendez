@@ -1,0 +1,19 @@
+HOLA MUNDO
+print("hola mundo")
+
+DESARROLLAR UN ALGORITMO PYTHON
+while True:
+    try:
+        numero = int(input("ingrese un numero entero mayor a 0: "))
+        if numero > 0:
+            break 
+        else:
+            print("el numero debe ser mayor a 0.")
+    except:
+        print("no valido, debes ingresar un numero entero.")
+
+sumatotal = 0 
+for o in range(1, numero + 1):
+    sumatotal += o
+print(f"la suma de los numeros de 1 a {numero} es: {sumatotal}")
+
