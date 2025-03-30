@@ -1,0 +1,137 @@
+VERIFICA SI UN NUMERO ES NEGATIVO,POSITIVO Y CERO
+numero = input("Ingresa un número: ")
+
+# Verificar que la entrada sea un número válido
+if numero.replace('.', '', 1).replace('-', '', 1).isdigit():
+    numero = float(numero)  # Convertir a número decimal
+    
+    if numero > 0:
+        print("El número es positivo.")
+    elif numero < 0:
+        print("El número es negativo.")
+    else:
+        print("El número es cero.")
+else:
+    print("Por favor, ingresa un número válido.")
+
+VALIDACION DE CONTRASEÑA CON ADVERTENCIA
+import re
+
+def validar_contraseña(contraseña):
+    errores = []
+
+    # Verificar la longitud mínima de 8 caracteres
+    if len(contraseña) < 8:
+        errores.append("La contraseña debe tener al menos 8 caracteres)
+
+    return errores
+
+contraseña = input("Ingresa tu contraseña: ")
+
+errores = validar_contraseña(contraseña)
+
+if errores:
+    print("Tu contraseña no es segura. Debes corregir los siguientes errores:")
+    for error in errores:
+        print(f"- {error}")
+else:
+    print("¡Tu contraseña es segura!")
+
+MOSTRAR TABLA DE MULTIPLICAR DE UN NUMERO
+numero = input("Ingresa un número para ver su tabla de multiplicar: ")
+
+if numero.isdigit():
+    numero = int(numero)
+    
+    print(f"\nTabla de multiplicar del {numero}:")
+    for i in range(1, 11):
+        print(f"{numero} x {i} = {numero * i}")
+else:
+    print("Por favor, ingresa un número válido.")
+
+CONTAR LETRAS EN UNA PALABRA SIN ESPACIO
+
+texto = input("Ingresa una palabra o frase: ")
+
+contador = 0
+for letra in texto:
+    if letra != " ":
+        contador += 1
+
+print(f"La cantidad de letras (sin contar espacios) es: {contador}")
+
+VALIDAR ENTRADA HASTA QUE SEA CORRECTA
+while True:
+    entrada = input("Ingresa un número entero: ")
+    
+    if entrada.isdigit():
+        numero = int(entrada)
+        print(f"¡Número válido! Has ingresado: {numero}")
+        break 
+    else:
+        print("Entrada incorrecta. Intenta de nuevo.")
+
+MENU DE OPERACIONES MATEMATICAS
+def sumar(a, b):
+    return a + b
+
+def restar(a, b):
+    return a - b
+
+def multiplicar(a, b):
+    return a * b
+
+def dividir(a, b):
+    if b != 0:
+        return a / b
+    else:
+        return "Error: No se puede dividir entre cero."
+
+while True:
+    print("\n--- MENÚ DE OPERACIONES MATEMÁTICAS ---")
+    print("1. Sumar")
+    print("2. Restar")
+    print("3. Multiplicar")
+    print("4. Dividir")
+    print("5. Salir")
+
+    opcion = input("Elige una opción (1-5): ")
+
+    if opcion == "5":
+        print("¡Hasta luego!")
+        break  # Termina el programa
+
+    if opcion in ["1", "2", "3", "4"]:
+        num1 = float(input("Ingresa el primer número: "))
+        num2 = float(input("Ingresa el segundo número: "))
+
+        if opcion == "1":
+            resultado = sumar(num1, num2)
+        elif opcion == "2":
+            resultado = restar(num1, num2)
+        elif opcion == "3":
+            resultado = multiplicar(num1, num2)
+        elif opcion == "4":
+            resultado = dividir(num1, num2)
+
+        print(f"El resultado es: {resultado}")
+    else:
+        print("Opción no válida. Intenta de nuevo.")
+
+FUNCION QUE DEVUELVE SI ES UN NUMERO PRIMO
+def es_primo(n):
+    if n < 2:
+        return False 
+
+    for i in range(2, int(n**0.5) + 1):  # Revisar hasta la raíz cuadrada de n
+        if n % i == 0:
+            return False 
+
+    return True  
+
+numero = int(input("Ingresa un número: "))
+
+if es_primo(numero):
+    print(f"{numero} es un número primo.")
+else:
+    print(f"{numero} no es un número primo.")
